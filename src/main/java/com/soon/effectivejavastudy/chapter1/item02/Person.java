@@ -34,5 +34,6 @@ public class Person {
     public static void main(String[] args) {
         Person soon = new Person("SOON", 1988);
         soon.kids.add("SOONKYU"); // 레퍼런스(참조 자료형) 타입 바뀔수 있다.
+        System.out.println(soon.kids);
     }
 }
