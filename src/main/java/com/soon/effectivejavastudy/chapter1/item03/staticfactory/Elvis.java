@@ -8,7 +8,8 @@ public class Elvis {
     }
 
     public static Elvis getInstance() {
-        return new Elvis();
+        return INSTANCE;
+//        return new Elvis();
     }
 
     public void leaveTheBuilding() {
