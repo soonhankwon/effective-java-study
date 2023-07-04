@@ -1,13 +1,20 @@
 package com.soon.effectivejavastudy.chapter1.item03.field;
 
-public class Elvis implements IElvis{
+import java.io.Serializable;
+
+public class Elvis implements IElvis, Serializable {
 
     /**
      * singleton object
      */
     public static final Elvis INSTANCE = new Elvis();
+    private static boolean created;
 
     private Elvis() {
+        if(created) {
+            throw new UnsupportedOperationException("can't be created by constructor");
+        }
+        created = true;
     }
 
     @Override
@@ -26,5 +33,10 @@ public class Elvis implements IElvis{
         System.out.println(instance == instance2);
         instance.leaveTheBuilding();
         instance.sing();
+    }
+
+    // override
+    private Object readResolve() {
+        return INSTANCE;
     }
 }
