@@ -2,12 +2,16 @@ package com.soon.effectivejavastudy.chapter1.item03.methodreference;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
+import java.util.function.Supplier;
+import java.util.stream.Collectors;
 
 public class Person {
 
     LocalDate birthday;
+
+    public Person() {
+    }
 
     public Person(LocalDate birthday) {
         this.birthday = birthday;
@@ -38,6 +42,13 @@ public class Person {
     }
 
     public static void main(String[] args) {
+        List<LocalDate> dates = new ArrayList<>();
+        dates.add(LocalDate.of(2022, 7, 7));
+        dates.add(LocalDate.of(1988, 1, 2));
+        dates.add(LocalDate.of(1986, 8, 7));
+        List<Person> collect = dates.stream().map(Person::new)
+                .collect(Collectors.toList());
+
         List<Person> people = new ArrayList<>();
         people.add(new Person(LocalDate.of(2022, 7 ,7)));
         people.add(new Person(LocalDate.of(1988, 1 ,2)));
