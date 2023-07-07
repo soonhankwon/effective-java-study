@@ -3,6 +3,7 @@ package com.soon.effectivejavastudy.chapter1.item05.dependencyInjection;
 import com.soon.effectivejavastudy.chapter1.item05.Dictionary;
 
 import java.util.List;
+import java.util.function.Supplier;
 
 public class SpellChecker {
 
@@ -11,6 +12,10 @@ public class SpellChecker {
 
     public SpellChecker(Dictionary dictionary) {
         this.dictionary = dictionary;
+    }
+
+    public SpellChecker(Supplier<? extends Dictionary> dictionarySupplier) {
+        this.dictionary = dictionarySupplier.get();
     }
 
     public boolean isValid(String word) {
