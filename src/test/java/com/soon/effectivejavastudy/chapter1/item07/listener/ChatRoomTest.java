@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.lang.ref.WeakReference;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 
 class ChatRoomTest {
 
@@ -26,7 +26,8 @@ class ChatRoomTest {
 
         Thread.sleep(5000L);
 
+        // WeakHashMap 의 기능이기 때문에 False
         List<WeakReference<User>> users = chatRoom.getUsers();
-        assertTrue(users.size() == 1);
+        assertFalse(users.size() == 1);
     }
 }

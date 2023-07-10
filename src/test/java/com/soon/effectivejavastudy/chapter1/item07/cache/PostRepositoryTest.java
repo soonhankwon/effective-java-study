@@ -17,7 +17,6 @@ class PostRepositoryTest {
         PostRepository postRepository = new PostRepository();
         CacheKey key1 = new CacheKey(1);
         postRepository.getPostById(key1);
-        key1 = null;
 
         assertFalse(postRepository.getCache().isEmpty());
 

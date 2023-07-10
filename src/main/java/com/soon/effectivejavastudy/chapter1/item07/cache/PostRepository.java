@@ -9,8 +9,8 @@ public class PostRepository {
     private Map<CacheKey, Post> cache;
 
     public PostRepository() {
-//        this.cache = new WeakHashMap<>();
-        this.cache = new HashMap<>();
+        this.cache = new WeakHashMap<>();
+//        this.cache = new HashMap<>();
     }
 
     public Post getPostById(CacheKey key) {
