@@ -8,7 +8,7 @@ public class AutoClosableIsGood implements AutoCloseable {
     private BufferedInputStream inputStream;
 
     @Override
-    public void close() throws Exception {
+    public void close() {
         try {
             inputStream.close();
         } catch (IOException e) {
