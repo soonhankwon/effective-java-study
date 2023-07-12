@@ -12,9 +12,16 @@ public class Point {
 
     @Override
     public boolean equals(Object obj) {
+        // 반사성
+        if(this == obj) {
+            return true;
+        }
+        // instanceOf
         if (!(obj instanceof Point))
             return false;
+        // type casting
         Point p = (Point) obj;
+        // 핵심 필드 비교
         return p.x == x && p.y == y;
     }
 
