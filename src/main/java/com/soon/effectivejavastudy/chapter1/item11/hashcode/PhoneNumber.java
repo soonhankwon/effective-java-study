@@ -1,8 +1,11 @@
 package com.soon.effectivejavastudy.chapter1.item11.hashcode;
 
+import com.soon.effectivejavastudy.chapter1.item10.Point;
+
 public class PhoneNumber {
 
     private final short areaCode, prefix, lineNum;
+    private Point point;
 
     public PhoneNumber(int areaCode, int prefix, int lineNum) {
         this.areaCode = rangeCheck(areaCode, 999, "area code");
@@ -24,5 +27,14 @@ public class PhoneNumber {
             return false;
         PhoneNumber pn = (PhoneNumber) obj;
         return pn.lineNum == lineNum && pn.prefix == prefix && pn.areaCode == areaCode;
+    }
+
+    @Override
+    public int hashCode() {
+        int result = Short.hashCode(areaCode);
+//        point.hashCode();
+        result = 31 * result + Short.hashCode(prefix);
+        result = 31 * result + Short.hashCode(lineNum);
+        return result;
     }
 }
