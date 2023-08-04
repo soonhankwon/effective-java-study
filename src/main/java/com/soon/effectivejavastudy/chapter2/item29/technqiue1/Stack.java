@@ -23,10 +23,10 @@ public class Stack<E> {
         elements[size++] = e;
     }
 
-    public Object pop() {
+    public E pop() {
         if(size == 0)
             throw new EmptyStackException();
-        Object result = elements[--size];
+        E result = elements[--size];
         elements[size] = null;
         return result;
     }
@@ -45,6 +45,6 @@ public class Stack<E> {
         for(String arg : List.of("a", "b", "c"))
             stack.push(arg);
         while(!stack.isEmpty())
-            System.out.println(((String) stack.pop()).toUpperCase());
+            System.out.println(stack.pop().toUpperCase());
     }
 }
