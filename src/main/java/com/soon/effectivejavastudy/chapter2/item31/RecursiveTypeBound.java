@@ -1,5 +1,8 @@
 package com.soon.effectivejavastudy.chapter2.item31;
 
+import com.soon.effectivejavastudy.chapter2.item31.example.IntegerBox;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
@@ -21,7 +24,10 @@ public class RecursiveTypeBound {
     }
 
     public static void main(String[] args) {
-        List<String> argList = Arrays.asList("a", "b");
-        System.out.println(max(argList));
+        List<IntegerBox> list = new ArrayList<>();
+        list.add(new IntegerBox(1, "a"));
+        list.add(new IntegerBox(2, "b"));
+
+        System.out.println(max(list));
     }
 }
