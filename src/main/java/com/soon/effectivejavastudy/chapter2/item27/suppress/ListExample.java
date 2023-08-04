@@ -10,6 +10,9 @@ public class ListExample {
 
     public <T> T[] toArray(T[] a) {
         if (a.length < size) {
+            /**
+             * why suppressWarnings?
+             */
             @SuppressWarnings("unchecked")
             T[] result = (T[]) Arrays.copyOf(elements, size, a.getClass());
             return result;
